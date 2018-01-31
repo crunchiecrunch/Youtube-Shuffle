@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4443FDBAFDBA6EDBC96CBEC2 /* Pods_Youtube_Shuffle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C43D9358DDCD688B96794F3 /* Pods_Youtube_Shuffle.framework */; };
 		D2D01A2C202176F4002D9047 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D01A2B202176F4002D9047 /* AppDelegate.swift */; };
 		D2D01A2E202176F4002D9047 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D01A2D202176F4002D9047 /* ViewController.swift */; };
 		D2D01A31202176F4002D9047 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D01A2F202176F4002D9047 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		D2D01A36202176F4002D9047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D01A34202176F4002D9047 /* LaunchScreen.storyboard */; };
 		D2D01A41202176F4002D9047 /* Youtube_ShuffleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D01A40202176F4002D9047 /* Youtube_ShuffleTests.swift */; };
 		D2D01A4C202176F4002D9047 /* Youtube_ShuffleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D01A4B202176F4002D9047 /* Youtube_ShuffleUITests.swift */; };
+		D2D01A662022740B002D9047 /* YouTubeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D01A652022740B002D9047 /* YouTubeData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C43D9358DDCD688B96794F3 /* Pods_Youtube_Shuffle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Youtube_Shuffle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6229D61AAD887C95DE69F56F /* Pods-Youtube Shuffle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube Shuffle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Youtube Shuffle/Pods-Youtube Shuffle.debug.xcconfig"; sourceTree = "<group>"; };
+		9E4AD59369093080DEA2D5DE /* Pods-Youtube Shuffle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube Shuffle.release.xcconfig"; path = "Pods/Target Support Files/Pods-Youtube Shuffle/Pods-Youtube Shuffle.release.xcconfig"; sourceTree = "<group>"; };
 		D2D01A28202176F4002D9047 /* Youtube Shuffle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Youtube Shuffle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D01A2B202176F4002D9047 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2D01A2D202176F4002D9047 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 		D2D01A47202176F4002D9047 /* Youtube ShuffleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Youtube ShuffleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D01A4B202176F4002D9047 /* Youtube_ShuffleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube_ShuffleUITests.swift; sourceTree = "<group>"; };
 		D2D01A4D202176F4002D9047 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2D01A652022740B002D9047 /* YouTubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4443FDBAFDBA6EDBC96CBEC2 /* Pods_Youtube_Shuffle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0890CD76B8DF212E5C5880C4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6229D61AAD887C95DE69F56F /* Pods-Youtube Shuffle.debug.xcconfig */,
+				9E4AD59369093080DEA2D5DE /* Pods-Youtube Shuffle.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		67C3765FB046E0DC1E64C877 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C43D9358DDCD688B96794F3 /* Pods_Youtube_Shuffle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D2D01A1F202176F4002D9047 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +105,8 @@
 				D2D01A3F202176F4002D9047 /* Youtube ShuffleTests */,
 				D2D01A4A202176F4002D9047 /* Youtube ShuffleUITests */,
 				D2D01A29202176F4002D9047 /* Products */,
+				0890CD76B8DF212E5C5880C4 /* Pods */,
+				67C3765FB046E0DC1E64C877 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +123,7 @@
 		D2D01A2A202176F4002D9047 /* Youtube Shuffle */ = {
 			isa = PBXGroup;
 			children = (
+				D2D01A652022740B002D9047 /* YouTubeData.swift */,
 				D2D01A2B202176F4002D9047 /* AppDelegate.swift */,
 				D2D01A2D202176F4002D9047 /* ViewController.swift */,
 				D2D01A2F202176F4002D9047 /* Main.storyboard */,
@@ -132,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2D01A50202176F4002D9047 /* Build configuration list for PBXNativeTarget "Youtube Shuffle" */;
 			buildPhases = (
+				1BB45DB963FD20F6D5EC61B9 /* [CP] Check Pods Manifest.lock */,
 				D2D01A24202176F4002D9047 /* Sources */,
 				D2D01A25202176F4002D9047 /* Frameworks */,
 				D2D01A26202176F4002D9047 /* Resources */,
+				0C7C67F9166E11DBD2A370D5 /* [CP] Embed Pods Frameworks */,
+				7E9D18383AA94DBC600E3CD5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,7 +223,7 @@
 				TargetAttributes = {
 					D2D01A27202176F4002D9047 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					D2D01A3B202176F4002D9047 = {
 						CreatedOnToolsVersion = 9.2;
@@ -254,12 +284,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0C7C67F9166E11DBD2A370D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Youtube Shuffle/Pods-Youtube Shuffle-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableAlamofire/CodableAlamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableAlamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Youtube Shuffle/Pods-Youtube Shuffle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1BB45DB963FD20F6D5EC61B9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Youtube Shuffle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E9D18383AA94DBC600E3CD5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Youtube Shuffle/Pods-Youtube Shuffle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D2D01A24202176F4002D9047 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D2D01A2E202176F4002D9047 /* ViewController.swift in Sources */,
+				D2D01A662022740B002D9047 /* YouTubeData.swift in Sources */,
 				D2D01A2C202176F4002D9047 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,13 +511,17 @@
 		};
 		D2D01A51202176F4002D9047 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6229D61AAD887C95DE69F56F /* Pods-Youtube Shuffle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Youtube Shuffle/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "crunch.Youtube-Shuffle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -438,13 +529,17 @@
 		};
 		D2D01A52202176F4002D9047 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E4AD59369093080DEA2D5DE /* Pods-Youtube Shuffle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Youtube Shuffle/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "crunch.Youtube-Shuffle";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -7,19 +7,52 @@
 //
 
 import UIKit
+import WebKit
+import Alamofire
+import CodableAlamofire
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var webView: WKWebView!
+    var items = [Item]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+//        let request = URLRequest(url: URL(string: "http://youtube.com/")!)
+//        webView?.load(request)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func shuffle(_ sender: Any) {
+        self.items = [Item]()
+        self.getData(pageToken: nil)
     }
-
-
+    //UC1FsSaQlCGmCR_FwuhfRyeg - crunch
+    //UClgMtOZ78-98bANHRSOyhCA
+    func getData(pageToken: String?){
+        var parameters = ["channelId": "UClgMtOZ78-98bANHRSOyhCA", "part":"id", "key":"AIzaSyBEzi61Ipzek8tYPwAYyLz8HGlQ-SW0j2A", "ios_bundle_id":"crunch.Youtube-Shuffle","maxResults":"50"]
+        if let pageToken = pageToken{
+            parameters["pageToken"] = pageToken
+        }
+        let decoder = JSONDecoder()
+        Alamofire.request("https://www.googleapis.com/youtube/v3/search", method: .get, parameters: parameters).responseDecodableObject(keyPath: nil, decoder: decoder) { (response: DataResponse<YouTubeData>) in
+            switch response.result {
+            case .success:
+                let youTubeData: YouTubeData = response.result.value!
+                self.items.append(contentsOf: youTubeData.items!)
+                if let nextPageToken = youTubeData.nextPageToken{
+                    self.getData(pageToken: nextPageToken)
+                }
+                else{
+                    self.done()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func done(){
+        
+    }
+    
 }
 

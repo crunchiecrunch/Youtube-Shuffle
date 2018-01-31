@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.5.1)
+  - CodableAlamofire (1.1.0):
+    - Alamofire (~> 4.0)
+
+DEPENDENCIES:
+  - CodableAlamofire (from `https://github.com/Otbivnoe/CodableAlamofire.git`)
+
+EXTERNAL SOURCES:
+  CodableAlamofire:
+    :git: https://github.com/Otbivnoe/CodableAlamofire.git
+
+CHECKOUT OPTIONS:
+  CodableAlamofire:
+    :commit: 733cec1d48c0d2c914b64f1f94a8ac8f7c95165d
+    :git: https://github.com/Otbivnoe/CodableAlamofire.git
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  CodableAlamofire: 2183509f080b5ef2d50b19ce8274cbc21bee5dfc
+
+PODFILE CHECKSUM: 507063ceea0786b4cfde4bc421c34daaeecd4808
+
+COCOAPODS: 1.3.1

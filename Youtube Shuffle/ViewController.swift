@@ -14,21 +14,28 @@ import CodableAlamofire
 class ViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     var items = [Item]()
+    var isDone = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let request = URLRequest(url: URL(string: "http://youtube.com/")!)
-//        webView?.load(request)
+        let request = URLRequest(url: URL(string: "http://youtube.com/")!)
+        webView?.load(request)
     }
     
     @IBAction func shuffle(_ sender: Any) {
-        self.items = [Item]()
-        self.getData(pageToken: nil)
+        guard isDone else { return }
+        if let webViewUrl = webView.url{
+            getChannelId(url: webViewUrl, completionHandler: { channelId in
+                self.isDone = false
+                self.items = [Item]()
+                self.getData(channelId: channelId!, pageToken: nil)
+            })
+        }
+
     }
-    //UC1FsSaQlCGmCR_FwuhfRyeg - crunch
-    //UClgMtOZ78-98bANHRSOyhCA
-    func getData(pageToken: String?){
-        var parameters = ["channelId": "UClgMtOZ78-98bANHRSOyhCA", "part":"id", "key":"AIzaSyBEzi61Ipzek8tYPwAYyLz8HGlQ-SW0j2A", "ios_bundle_id":"crunch.Youtube-Shuffle","maxResults":"50"]
+
+    func getData(channelId: String, pageToken: String?){
+        var parameters = ["channelId": channelId, "part":"id", "key":"AIzaSyBEzi61Ipzek8tYPwAYyLz8HGlQ-SW0j2A","maxResults":"50"]
         if let pageToken = pageToken{
             parameters["pageToken"] = pageToken
         }
@@ -39,7 +46,7 @@ class ViewController: UIViewController {
                 let youTubeData: YouTubeData = response.result.value!
                 self.items.append(contentsOf: youTubeData.items!)
                 if let nextPageToken = youTubeData.nextPageToken{
-                    self.getData(pageToken: nextPageToken)
+                    self.getData(channelId: channelId, pageToken: nextPageToken)
                 }
                 else{
                     self.done()
@@ -51,7 +58,31 @@ class ViewController: UIViewController {
     }
     
     func done(){
-        
+        isDone = true
+        print(self.items.count)
+    }
+    
+    func getChannelId(url: URL, completionHandler: @escaping ((_ channelId: String?)->())){
+        guard let url = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
+        guard let range = url.path.range(of: "channel/") else {
+            
+            //if no channel id exists in url, look up the user name
+            guard let range = url.path.range(of: "user/") else { return }
+            let parameters = ["forUsername": String(url.path[range.upperBound...]), "part":"id", "key":"AIzaSyBEzi61Ipzek8tYPwAYyLz8HGlQ-SW0j2A"]
+            let decoder = JSONDecoder()
+            Alamofire.request("https://www.googleapis.com/youtube/v3/channels", method: .get, parameters: parameters).responseDecodableObject(keyPath: nil, decoder: decoder) { (response: DataResponse<ChannelData>) in
+                switch response.result {
+                case .success:
+                    let channelData: ChannelData = response.result.value!
+                    completionHandler(channelData.items?[0].id)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            return
+            
+        }
+        completionHandler(String(url.path[range.upperBound...]))
     }
     
 }

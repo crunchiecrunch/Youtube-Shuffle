@@ -21,3 +21,13 @@ struct Item: Codable {
         let videoId: String?
     }
 }
+
+//channel
+
+struct ChannelData: Codable {
+    let items: [ChannelItem]?
+}
+
+struct ChannelItem: Codable {
+    let id: String?
+}

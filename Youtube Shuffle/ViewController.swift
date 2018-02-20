@@ -10,15 +10,17 @@ import UIKit
 import WebKit
 import Alamofire
 import CodableAlamofire
+import Darwin
 
 class ViewController: UIViewController {
+    let key = "AIzaSyBEzi61Ipzek8tYPwAYyLz8HGlQ-SW0j2A"
     @IBOutlet weak var webView: WKWebView!
     var items = [Item]()
     var isDone = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let request = URLRequest(url: URL(string: "http://youtube.com/")!)
+        let request = URLRequest(url: URL(string: "https://youtube.com/")!)
         webView?.load(request)
     }
     
@@ -35,7 +37,7 @@ class ViewController: UIViewController {
     }
 
     func getData(channelId: String, pageToken: String?){
-        var parameters = ["channelId": channelId, "part":"id", "key":"AIzaSyBEzi61Ipzek8tYPwAYyLz8HGlQ-SW0j2A","maxResults":"50"]
+        var parameters = ["channelId": channelId, "part":"id", "key":key,"maxResults":"50"]
         if let pageToken = pageToken{
             parameters["pageToken"] = pageToken
         }
@@ -60,6 +62,13 @@ class ViewController: UIViewController {
     func done(){
         isDone = true
         print(self.items.count)
+        if self.items.count > 0 {
+            let randomVideo = Int(arc4random_uniform(UInt32(self.items.count)))
+            if let id = items[randomVideo].id, let videoId = id.videoId {
+                let request = URLRequest(url: URL(string: "https://www.youtube.com/watch?v=" + videoId)!)
+                webView?.load(request)
+            }
+        }
     }
     
     func getChannelId(url: URL, completionHandler: @escaping ((_ channelId: String?)->())){
@@ -68,7 +77,7 @@ class ViewController: UIViewController {
             
             //if no channel id exists in url, look up the user name
             guard let range = url.path.range(of: "user/") else { return }
-            let parameters = ["forUsername": String(url.path[range.upperBound...]), "part":"id", "key":"AIzaSyBEzi61Ipzek8tYPwAYyLz8HGlQ-SW0j2A"]
+            let parameters = ["forUsername": String(url.path[range.upperBound...]), "part":"id", "key":key]
             let decoder = JSONDecoder()
             Alamofire.request("https://www.googleapis.com/youtube/v3/channels", method: .get, parameters: parameters).responseDecodableObject(keyPath: nil, decoder: decoder) { (response: DataResponse<ChannelData>) in
                 switch response.result {
